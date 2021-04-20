@@ -21,7 +21,6 @@ public class UploaderService {
 
     public ResponseEntity<Object> upload(MultipartFile file) {
         String pathname= FILE_PATH + file.getOriginalFilename()+ LocalDateTime.now();
-        System.out.println(pathname);
         File convertedFile = new File(pathname);
         try {
             convertedFile.createNewFile();
