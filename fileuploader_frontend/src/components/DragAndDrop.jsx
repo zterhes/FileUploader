@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react'
+import React, { createRef, useCallback } from 'react'
 import { useDropzone } from 'react-dropzone'
 import styled from "styled-components";
 import img from "../img/image.svg"
@@ -35,19 +35,21 @@ const Button = styled.button`
 
 
 const DragAndDrop = () => {
-    const onDrop = useCallback(acceptedFiles => {
-        uploadFile(acceptedFiles)
+    const onDrop = useCallback(acceptedFile => {
+        uploadFile(acceptedFile[0])
     }, [])
 
-    const { getRootProps, getInputProps, isDragActive } = useDropzone({ onDrop, noClick: true })
+    const { getRootProps, getInputProps,open } = useDropzone({ onDrop, noClick: true, maxFiles: 1})
 
     return (
-        <DropZoneStyle {...getRootProps()}>
-            <input {...getInputProps()} />
-            <img src={img} alt="" />
-            <Text>Drop the files here ...</Text>
-        </DropZoneStyle>
-
+        <>{console.log(`getInputProps`, getRootProps)}
+            <DropZoneStyle  {...getRootProps()} >
+                <input {...getInputProps()} />
+                <img src={img} alt="" />
+                <Text>Drop the files here ...</Text>
+            </DropZoneStyle>
+            <Button onClick={open}>Choose file</Button>
+        </>
     )
 }
 

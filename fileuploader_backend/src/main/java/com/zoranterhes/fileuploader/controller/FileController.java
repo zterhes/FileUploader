@@ -13,12 +13,15 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.annotation.security.PermitAll;
+
 @RequiredArgsConstructor
 @RestController
 public class FileController {
 
     private final UploaderService uploaderService;
 
+    @PermitAll
     @PostMapping("/upload")
     public ResponseEntity<Object> upload(@RequestParam("File") MultipartFile file) {
         System.out.println("incoming file");
