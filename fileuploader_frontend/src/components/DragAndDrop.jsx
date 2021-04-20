@@ -42,7 +42,7 @@ const DragAndDrop = () => {
     const { getRootProps, getInputProps,open } = useDropzone({ onDrop, noClick: true, maxFiles: 1})
 
     return (
-        <>{console.log(`getInputProps`, getRootProps)}
+        <>
             <DropZoneStyle  {...getRootProps()} >
                 <input {...getInputProps()} />
                 <img src={img} alt="" />
