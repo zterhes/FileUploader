@@ -21,6 +21,7 @@ public class FileController {
 
     @PostMapping("/upload")
     public ResponseEntity<Object> upload(@RequestParam("File") MultipartFile file) {
+        System.out.println("incoming file");
         return uploaderService.upload(file);
     }
 }

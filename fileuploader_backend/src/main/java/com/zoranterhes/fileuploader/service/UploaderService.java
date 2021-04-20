@@ -9,6 +9,8 @@ import org.springframework.web.multipart.MultipartFile;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.time.LocalDateTime;
+import java.util.Date;
 
 @Service
 public class UploaderService {
@@ -18,7 +20,9 @@ public class UploaderService {
 
 
     public ResponseEntity<Object> upload(MultipartFile file) {
-        File convertedFile = new File(FILE_PATH + file.getOriginalFilename());
+        String pathname= FILE_PATH + file.getOriginalFilename()+ LocalDateTime.now();
+        System.out.println(pathname);
+        File convertedFile = new File(pathname);
         try {
             convertedFile.createNewFile();
             FileOutputStream fos = new FileOutputStream(convertedFile);
