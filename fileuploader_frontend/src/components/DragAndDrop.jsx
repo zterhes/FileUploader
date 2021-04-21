@@ -34,10 +34,12 @@ const Button = styled.button`
 `
 
 
-const DragAndDrop = () => {
-    const onDrop = useCallback(acceptedFile => {
-        uploadFile(acceptedFile[0])
-    }, [])
+const DragAndDrop = ({setResponseData}) => {
+    const onDrop = async acceptedFile => {
+        const responseData = await uploadFile(acceptedFile[0])
+        console.log('responseData onDrop :>> ', responseData);
+        setResponseData(responseData)
+    }
 
     const { getRootProps, getInputProps,open } = useDropzone({ onDrop, noClick: true, maxFiles: 1})
 
