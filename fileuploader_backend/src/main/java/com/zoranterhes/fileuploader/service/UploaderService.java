@@ -30,6 +30,6 @@ public class UploaderService {
         } catch (IOException e) {
             return new ResponseEntity<>("Unsuccessful upload", HttpStatus.BAD_REQUEST);
         }
-        return new ResponseEntity<>("Succesful upload", HttpStatus.OK);
+        return new ResponseEntity<>("Succesfull upload", HttpStatus.OK);
     }
 }

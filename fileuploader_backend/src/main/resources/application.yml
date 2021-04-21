@@ -1,3 +1,6 @@
+file:
+  upload-dir: /home/zterhes/Desktop/Programing/FileUploader/uploaded_files/
+
 server:
   port: 8081
 
