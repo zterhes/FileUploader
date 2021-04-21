@@ -20,7 +20,7 @@ public class UploaderService {
 
 
     public ResponseEntity<Object> upload(MultipartFile file) {
-        String pathname= FILE_PATH + file.getOriginalFilename()+ LocalDateTime.now();
+        String pathname = FILE_PATH + file.getOriginalFilename() + LocalDateTime.now();
         File convertedFile = new File(pathname);
         try {
             convertedFile.createNewFile();
