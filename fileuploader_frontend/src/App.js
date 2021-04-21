@@ -12,8 +12,8 @@ width:100vw;
 `
 
 const UploaderDiv = styled.div`
-width: 402px;
-height: 469px;
+width:25%;
+height: 50%;
 
 `
 

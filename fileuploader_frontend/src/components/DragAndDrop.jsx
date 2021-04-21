@@ -7,6 +7,10 @@ import { uploadFile } from "../communications/fileApi"
 
 
 const DropZoneStyle = styled.div`
+display:flex;
+flex-direction:column;
+justify-content:space-evenly;
+align-items:center;
 width: 338px;
 height: 218.9px;
 background: #F6F8FB;
@@ -31,10 +35,15 @@ color: #BDBDBD;
 `
 
 const Button = styled.button`
+background: #2F80ED;
+border-radius: 8px;
+color:white;
+height:10%;
+width:25%;
 `
 
 
-const DragAndDrop = ({setResponseData}) => {
+const DragAndDrop = ({setResponseData,buttonStyle}) => {
     const onDrop = async acceptedFile => {
         const responseData = await uploadFile(acceptedFile[0])
         console.log('responseData onDrop :>> ', responseData);
@@ -48,8 +57,9 @@ const DragAndDrop = ({setResponseData}) => {
             <DropZoneStyle  {...getRootProps()} >
                 <input {...getInputProps()} />
                 <img src={img} alt="" />
-                <Text>Drop the files here ...</Text>
+                <Text>Drag and Drop your image here</Text>
             </DropZoneStyle>
+            <Text textSize="10px" color="#828282">Or</Text>
             <Button onClick={open}>Choose file</Button>
         </>
     )
