@@ -11,8 +11,8 @@ display:flex;
 flex-direction:column;
 justify-content:space-evenly;
 align-items:center;
-width: 338px;
-height: 218.9px;
+width: 100%;
+height: 80%;
 background: #F6F8FB;
 border: 1px dashed #97BEF4;
 box-sizing: border-box;
@@ -24,7 +24,6 @@ width: 166.01px;
 height: 17.99px;
 left: 643.17px;
 top: 589.3px;
-
 font-family: Poppins;
 font-style: normal;
 font-weight: 500;
@@ -38,8 +37,17 @@ const Button = styled.button`
 background: #2F80ED;
 border-radius: 8px;
 color:white;
-height:10%;
-width:25%;
+height:15%;
+width:40%;
+`
+
+const DropZoneDiv=styled.div`
+display:flex;
+flex-direction:column;
+align-items:center;
+justify-content:space-around;
+width:90%;
+height: 70%;
 `
 
 
@@ -53,7 +61,7 @@ const DragAndDrop = ({setResponseData,buttonStyle}) => {
     const { getRootProps, getInputProps,open } = useDropzone({ onDrop, noClick: true, maxFiles: 1})
 
     return (
-        <>
+        <DropZoneDiv>
             <DropZoneStyle  {...getRootProps()} >
                 <input {...getInputProps()} />
                 <img src={img} alt="" />
@@ -61,7 +69,7 @@ const DragAndDrop = ({setResponseData,buttonStyle}) => {
             </DropZoneStyle>
             <Text textSize="10px" color="#828282">Or</Text>
             <Button onClick={open}>Choose file</Button>
-        </>
+        </DropZoneDiv>
     )
 }
 
